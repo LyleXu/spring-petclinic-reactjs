@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/spring-petclinic/spring-petclinic-reactjs",
   "scripts": {
-    "postinstall": "/layers/tanzu-buildpacks_npm-install/npm-cache/typings install",
+    "postinstall": "/layers/tanzu-buildpacks_npm-install/modules/node_modules/typings install",
     "install-types": "typings install",
     "test": "jest",
     "test:watch": "jest --watchAll --no-cache",
