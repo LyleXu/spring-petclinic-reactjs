@@ -12,7 +12,7 @@ var httpProxyMiddleware = require('http-proxy-middleware');
 var config = require('./webpack.config');
 
 // Tools like Cloud9 rely on this.
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 var compiler;
 var handleCompile;
 
