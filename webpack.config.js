@@ -15,8 +15,7 @@ module.exports = {
   devtool: 'source-map',
   entry: entries,
   devServer: {
-    host: '0.0.0.0',
-    disableHostCheck: true
+    allowedHosts: 'all'
   },
   output: {
     path: path.join(__dirname, 'public/dist/'),
