@@ -5,9 +5,11 @@
   "main": "index.js",
   "repository": "https://github.com/spring-petclinic/spring-petclinic-reactjs",
   "scripts": {
+    "postinstall": "typings install",
+    "install-types": "typings install",
     "test": "jest",
     "test:watch": "jest --watchAll --no-cache",
-    "start": "npm install chalk && PORT=8080 node server.js",
+    "start": "PORT=8080 node server.js",
     "build:clean": "rimraf ./public/dist && webpack --config webpack.config.js",
     "build:prod": "rimraf ./public/dist && NODE_ENV=production webpack --config webpack.config.prod.js"
   },
