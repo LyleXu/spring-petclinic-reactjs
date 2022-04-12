@@ -28,4 +28,4 @@ jobs:
           az config set defaults.group=$RESOURCE_GROUP
           az config set defaults.spring-cloud=$SPRING_CLOUD_INSTANCE_NAME
 
-          az spring-cloud app deploy -n petclinic-ui --source-path ${{ github.workspace }}
+          az spring-cloud app deploy -n petclinic-ui --builder nodejs-builder --source-path ${{ github.workspace }}
