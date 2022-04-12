@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 const entries = [
   'webpack-dev-server/client?http://localhost:' + port,
@@ -14,6 +14,10 @@ const entries = [
 module.exports = {
   devtool: 'source-map',
   entry: entries,
+  devServer: {
+    compress: true,
+    public: 'ascpetclinicentdev1-petclinic-ui.azuremicroservices.io' // That solved it
+  },
   output: {
     path: path.join(__dirname, 'public/dist/'),
     filename: 'bundle.js',
