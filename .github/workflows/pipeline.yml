@@ -1,0 +1,31 @@
+name: AzureSpringCloud
+on: push
+env:
+  AZURE_SUBSCRIPTION: ${{ secrets.SUBSCRIPTION_NAME }}
+  RESOURCE_GROUP: rg-testasc-dev
+  SPRING_CLOUD_INSTANCE_NAME: ascpetclinicentdev1
+
+jobs:
+  deploy_to_production:
+    runs-on: ubuntu-latest
+    name: deploy
+    steps:
+      - name: Checkout Github Action
+        uses: actions/checkout@v2
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Install ASC extension 2
+        run: |
+          az extension add --name spring-cloud
+
+      - name: Deploy
+        run: |
+          az account set -s ${{ env.AZURE_SUBSCRIPTION }}
+          az config set defaults.group=$RESOURCE_GROUP
+          az config set defaults.spring-cloud=$SPRING_CLOUD_INSTANCE_NAME
+
+          az spring-cloud app deploy -n petclinic-ui --source-path ${{ github.workspace }}
