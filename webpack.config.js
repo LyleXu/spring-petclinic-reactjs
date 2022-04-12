@@ -15,8 +15,8 @@ module.exports = {
   devtool: 'source-map',
   entry: entries,
   devServer: {
-    compress: true,
-    public: 'ascpetclinicentdev1-petclinic-ui.azuremicroservices.io' // That solved it
+    host: '0.0.0.0',
+    disableHostCheck: true
   },
   output: {
     path: path.join(__dirname, 'public/dist/'),
