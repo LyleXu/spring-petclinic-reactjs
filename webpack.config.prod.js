@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 const entries = [
   './src/main.tsx'
@@ -11,6 +11,10 @@ const entries = [
 module.exports = {
   devtool: 'source-map',
   entry: entries,
+  devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true
+  },
   output: {
     path: path.join(__dirname, 'public/dist/'),
     filename: 'bundle.js',
