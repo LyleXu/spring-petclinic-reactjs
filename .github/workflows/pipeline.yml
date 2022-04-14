@@ -25,7 +25,7 @@ jobs:
       - name: Deploy
         run: |
           az account set -s ${{ env.AZURE_SUBSCRIPTION }}
-          az config set defaults.group=$RESOURCE_GROUP
-          az config set defaults.spring-cloud=$SPRING_CLOUD_INSTANCE_NAME
+          az config set defaults.group=${{ env.RESOURCE_GROUP }}
+          az config set defaults.spring-cloud=${{ env.SPRING_CLOUD_INSTANCE_NAME }}
 
-          az spring-cloud app deploy -n petclinic-ui --builder nodejs-builder --source-path ${{ github.workspace }}
+          az spring-cloud app deploy -n petclinic-ui -g  --builder nodejs-builder --source-path ${{ github.workspace }}
