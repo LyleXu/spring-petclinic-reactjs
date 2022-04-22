@@ -28,4 +28,4 @@ jobs:
           az config set defaults.group=${{ env.RESOURCE_GROUP }}
           az config set defaults.spring-cloud=${{ env.SPRING_CLOUD_INSTANCE_NAME }}
 
-          az spring-cloud app deploy -n petclinic-ui --builder nodejs-builder --source-path ${{ github.workspace }} --build-env '{"BP_NODE_RUN_SCRIPTS": "install-types,typings-install"}'
+          az spring-cloud app deploy -n petclinic-ui --builder nodejs-builder --source-path ${{ github.workspace }} --build-env "{\"BP_NODE_RUN_SCRIPTS\": \"install-types,typings-install\"}"
