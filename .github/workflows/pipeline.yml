@@ -18,7 +18,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Install ASC extension 2
+      - name: Install ASC extension
         run: |
           az extension add --name spring-cloud
 
